@@ -9,6 +9,16 @@
 <body>
     <div class="container">
         <h4>Lista de Estudiantes</h4>
+        <div class="col.xl.12">
+            <form action="{{route('Lista.index')}}" method="get">
+                <div class="col sm-4">
+                    <input type="text" class="form-control" name="texto">
+                </div>
+                <div class="col auto">
+                    <input type="submit" class="btm btn-primary" value="buscar">
+                </div>
+            </form>
+        </div>
         <div class="row">
             <div class="col-xl-12">
                 <div class="table-responsive">
