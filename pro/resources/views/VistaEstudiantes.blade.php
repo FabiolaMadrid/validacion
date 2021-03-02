@@ -10,14 +10,16 @@
     <div class="container">
         <h4>Lista de Estudiantes</h4>
         <div class="col.xl.12">
-            <form action="{{route('Lista.index')}}" method="get">
+            <!--<form action="{{route('Lista.index')}}" method="get">
+            <div class="form row">
                 <div class="col sm-4">
                     <input type="text" class="form-control" name="texto">
                 </div>
                 <div class="col auto">
                     <input type="submit" class="btm btn-primary" value="buscar">
                 </div>
-            </form>
+                </div>
+            </form>-->
         </div>
         <div class="row">
             <div class="col-xl-12">
@@ -35,10 +37,16 @@
                             <tbody>
                                 @foreach ($estudiante as $estudiantes)
                                     <tr>
-                                        <th>{{$estudiantes->Matricula}}</th>
-                                        <th>{{$estudiantes->Nombre}}</th>
-                                        <th>{{$estudiantes->Domiciliio}}</th>
-                                        <th>Editar|Eliminar</th>
+                                        <td>{{$estudiantes->Matricula}}</td>
+                                        <td>{{$estudiantes->Nombre}}</td>
+                                        <td>{{$estudiantes->Domicilio}}</td>
+                                        <td>Editar|
+                                        <form method="POSTY" action="{{ url("Lista/{$estudiantes->id}") }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm ('¿Deseas borrar?');">Eliminar</button>
+                                        </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
