@@ -66,7 +66,8 @@ class ListaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $estudiante=estudiantes::whereId($id)->firstOrFail();
+        return view('EditarEstudiante', compact('estudiante'));
     }
 
     /**
@@ -78,7 +79,12 @@ class ListaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $estudiante=estudiantes::findOrFail($id);
+        $estudiante->Matricula=$request->input('Matricula');
+        $estudiante->Nombre=$request->input('Nombre');
+        $estudiante->Domicilio=$request->input('Domicilio');
+        $estudiante->save();
+        return redirect()->route('Lista.index');
     }
 
     /**

@@ -40,13 +40,18 @@
                                         <td>{{$estudiantes->Matricula}}</td>
                                         <td>{{$estudiantes->Nombre}}</td>
                                         <td>{{$estudiantes->Domicilio}}</td>
-                                        <td>Editar|
+                                        
+                                        <td><a href="{{ route ('Lista.edit', $estudiantes->id) }}" class="btn btn-primary btn-sm btn btn-warning btn-sm">Actualizar</a></td>
+                                        </td>
+                                        </form>
+                                        <td>
                                         <form method="POSTY" action="{{ url("Lista/{$estudiantes->id}") }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" onclick="return confirm ('¿Deseas borrar?');">Eliminar</button>
-                                        </form>
                                         </td>
+                                        </form>
+                                        
                                     </tr>
                                 @endforeach
                             </tbody>
