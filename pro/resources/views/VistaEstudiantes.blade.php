@@ -31,6 +31,8 @@
                                 <th>Nombre</th>
                                 <th>Domicilio</th>
                                 <th>Acciones</th>
+                                <th colspan="2">Acciones</th>
+                                <a href="{{route('descargaPDF')}}">PDF</a>
                                 
                             </tr>
                         </thead>

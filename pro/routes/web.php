@@ -33,3 +33,5 @@ Route::patch('Lista/{estudiante}/edit', 'ListaController@update')->name('Lista.u
 Route::get('grafica', function (){
     return view('grafica');
 });
+
+Route::get('pdf', 'PDFController@PDF')->name('descargaPDF');
